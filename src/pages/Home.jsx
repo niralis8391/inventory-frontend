@@ -8,7 +8,7 @@ export const Home = () => {
         <div className='relative'>
             {/* <Main /> */}
             <Products />
-            <Footer />
+            {/* <Footer /> */}
         </div>
     )
 }
