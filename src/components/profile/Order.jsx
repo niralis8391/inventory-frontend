@@ -81,14 +81,14 @@ export const Order = () => {
 
             {/* order details */}
             {details && <div className='fixed top-0 left-0 inset-0 bg-black/50 backdrop:blur-md z-40 pt-20' onClick={() => setdetails(false)}>
-                <div className='relative bg-white w-1/2 mx-auto flex flex-col gap-5 items-start p-5 rounded-md z-50'>
-                    <div className='flex flex-wrap gap-5'>
+                <div className='relative bg-white w-1/2 max-md:w-xs h-[25rem] max-md:h-[30rem] mx-auto flex flex-col gap-5 items-start p-5 rounded-md z-50'>
+                    <div className='flex max-sm:flex-col max-md:overflow-y-scroll gap-5'>
                         {moreDetails.items.map((items, index) => {
                             return <div className='flex flex-col gap-2'>
                                 <p className='text-gray-500'>{index + 1}.</p>
                                 <img src={items.product.image} className='w-44 h-44' />
                                 <div>
-                                    <p className='text-xl text-gray-500'>{items.product.productName}</p>
+                                    <p className='text-xl text-gray-500 capitalize'>{items.product.productName}</p>
                                     <p className='font-semibold text-gray-500'>Qty: {items.quantity}</p>
                                     <p className='text-xl font-semibold'>Rs. {items.product.price}</p>
                                 </div>
