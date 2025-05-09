@@ -16,7 +16,7 @@ export const User = () => {
     function closeDashBoardHandler() { setShowDashBoard(false) }
 
     return (
-        <div className='flex w-full h-[30rem] max-md:h-full border-t border-b border-gray-300 relative'>
+        <div className='flex w-full h-[30rem] max-md:h-[40rem] border-t border-b border-gray-300 relative'>
             <div className={`w-1/5 border-r border-gray-300 h-full max-md:absolute ${showDashBoard ? 'left-0' : '-left-full'} max-md:w-xs max-md:bg-white max-md:z-60 transition-all duration-300 ease-in-out`}>
                 <div className='block md:hidden'>
                     {!showDashBoard && <span className='fixed top-32 left-0 bg-amber-800 text-white p-2 rounded-r-md' onClick={showDashBoardHandler}>
