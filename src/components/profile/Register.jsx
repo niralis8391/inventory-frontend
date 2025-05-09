@@ -52,8 +52,8 @@ export const Register = () => {
     return (
         <div>
             {loading && <Loading />}
-            <form onSubmit={submitHandler} className='border flex flex-col justify-start shadow-2xl  my-20 border-gray-300 w-1/2 mx-auto p-5 bg-white rounded-xl'>
-                {message && <div className='w-full p-3 rounded-md text-center capitalize bg-amber-700/10 mb-5'>{message}</div>}
+            <form onSubmit={submitHandler} className='border flex flex-col justify-start shadow-2xl max-md:w-xs my-20 border-gray-300 w-1/2 mx-auto p-5 bg-white rounded-xl'>
+                {message && <div className='w-full p-3 rounded-md text-center capitalize bg-orange-300 mb-5'>{message}</div>}
                 <label className='text-xl flex flex-col items-start'>
                     Username:
                     <input type='text' name='name' onChange={changeHandler} className='p-2 rounded-md border border-gray-300 block w-full focus:outline-none focus:ring-1 focus:ring-amber-500' />
@@ -74,7 +74,7 @@ export const Register = () => {
                     Address:
                     <input type='text' name='address' onChange={changeHandler} className='p-2 rounded-md border border-gray-300 block w-full focus:outline-none focus:ring-1 focus:ring-amber-500' />
                 </label>
-                <button className='w-fit bg-amber-600 px-5 py-2 rounded-md text-white mt-5 cursor-pointer'>Register</button>
+                <button className='w-fit bg-amber-800 px-5 py-2 rounded-md text-white mt-5 cursor-pointer'>Register</button>
                 <button className='text-left py-2 text-gray-500 capitalize cursor-pointer' type='button' onClick={() => navigate('/login')}>Already have an account?</button>
             </form>
         </div>

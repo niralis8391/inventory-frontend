@@ -114,7 +114,7 @@ export const UpdataProfile = () => {
 
                 <button
                     type="submit"
-                    className="w-fit px-5 cursor-pointer bg-amber-600/50  text-white py-2 rounded-lg hover:bg-amber-700 transition duration-200"
+                    className="w-fit px-5 cursor-pointer bg-amber-800  text-white py-2 rounded-lg hover:bg-amber-700 transition duration-200"
                 >
                     Save Changes
                 </button>

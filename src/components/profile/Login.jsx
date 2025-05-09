@@ -53,8 +53,8 @@ export const Login = () => {
     return (
         <div>
             {loading && <Loading />}
-            <form onSubmit={submitHandler} className='border flex flex-col justify-start shadow-2xl mt-10 border-gray-300 w-1/2 mx-auto p-5 bg-white rounded-xl'>
-                {message && <div className='w-full p-3 rounded-md text-center capitalize bg-amber-700/10 mb-5'>{message}</div>}
+            <form onSubmit={submitHandler} className='border flex flex-col justify-start shadow-2xl mt-10 border-gray-300 w-1/2 max-md:w-xs mx-auto p-5 bg-white rounded-xl'>
+                {message && <div className='w-full p-3 rounded-md text-center capitalize bg-orange-300 mb-5'>{message}</div>}
                 <label className='text-xl flex flex-col items-start'>
                     Email:
                     <input type='email' name='email' onChange={changeHandler} className='p-2 rounded-md border border-gray-300 block w-full focus:outline-none focus:ring-1 focus:ring-amber-500' />
@@ -64,7 +64,7 @@ export const Login = () => {
                     <input type='password' name='password' onChange={changeHandler} className='p-2 rounded-md border border-gray-300 block w-full focus:outline-none focus:ring-1 focus:ring-amber-500' />
                 </label>
                 <button type='button' className='text-left py-2 text-gray-500 capitalize cursor-pointer'>forgot password?</button>
-                <button className='w-fit bg-amber-600 px-5 py-2 rounded-md text-white my-3 cursor-pointer'>Log in</button>
+                <button className='w-fit bg-amber-800 px-5 py-2 rounded-md text-white my-3 cursor-pointer'>Log in</button>
                 <button type='button' className='text-left py-2 text-gray-500 capitalize cursor-pointer' onClick={() => navigate('/register')}>Create new account</button>
             </form>
         </div>

@@ -3,25 +3,25 @@ import React from 'react'
 export const Footer = () => {
     return (
         <div className=''>
-            <div className='flex items-center justify-between px-10 p-10 border-b border-gray-300'>
-                <div className='flex w-full items-center capitalize border-r border-gray-300 justify-center'>
+            <div className='flex max-md:flex-col max-md:gap-5 max-md:items-start items-center justify-between px-10 p-10 border-b border-gray-300'>
+                <div className='flex w-full gap-3 items-center capitalize max-md:border-none border-r border-gray-300 justify-center'>
                     <span className='text-amber-800'>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="m21.47 11.185l-1.03-1.43a2.5 2.5 0 0 0-2.03-1.05h-4.38v-2.14a2.5 2.5 0 0 0-2.5-2.5H4.56a2.507 2.507 0 0 0-2.5 2.5v9.94a1.5 1.5 0 0 0 1.5 1.5h1.22a2.242 2.242 0 0 0 4.44 0h5.56a2.242 2.242 0 0 0 4.44 0h1.22a1.5 1.5 0 0 0 1.5-1.5v-3.87a2.5 2.5 0 0 0-.47-1.45M7 18.935a1.25 1.25 0 1 1 1.25-1.25A1.25 1.25 0 0 1 7 18.935m6.03-1.93H9.15a2.257 2.257 0 0 0-4.3 0H3.56a.5.5 0 0 1-.5-.5v-9.94a1.5 1.5 0 0 1 1.5-1.5h6.97a1.5 1.5 0 0 1 1.5 1.5Zm3.97 1.93a1.25 1.25 0 1 1 1.25-1.25a1.25 1.25 0 0 1-1.25 1.25m3.94-2.43a.5.5 0 0 1-.5.5h-1.29a2.257 2.257 0 0 0-4.3 0h-.82v-7.3h4.38a1.52 1.52 0 0 1 1.22.63l1.03 1.43a1.53 1.53 0 0 1 .28.87Z" /><path fill="currentColor" d="M18.029 12.205h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 0 1" /></svg>
                     </span>
                     <p>free shipping</p>
                 </div>
-                <div className='flex w-full items-center capitalize border-r border-gray-300 justify-center'>
+                <div className='flex w-full gap-3 items-center capitalize max-md:border-none border-r border-gray-300 justify-center'>
                     <span className='text-amber-800'>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="m21 15.46l-5.27-.61l-2.52 2.52a15.05 15.05 0 0 1-6.59-6.59l2.53-2.53L8.54 3H3.03C2.45 13.18 10.82 21.55 21 20.97z" /></svg>
                     </span>
                     <p>Support 24/7 At Anytime</p>
                 </div>
-                <div className='flex w-full items-center capitalize border-r border-gray-300 justify-center'>
+                <div className='flex w-full gap-3 items-center capitalize max-md:border-none border-r border-gray-300 justify-center'>
                     <span className='text-amber-800'>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512"><path fill="currentColor" d="M32 376a56 56 0 0 0 56 56h336a56 56 0 0 0 56-56V222H32Zm66-76a30 30 0 0 1 30-30h48a30 30 0 0 1 30 30v20a30 30 0 0 1-30 30h-48a30 30 0 0 1-30-30ZM424 80H88a56 56 0 0 0-56 56v26h448v-26a56 56 0 0 0-56-56" /></svg>                    </span>
                     <p>Secure Payment</p>
                 </div>
-                <div className='flex w-full items-center capitalize justify-center'>
+                <div className='flex w-full gap-3 items-center capitalize justify-center'>
                     <span className='text-amber-800'>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="m20.749 12l1.104-1.908a1 1 0 0 0-.365-1.366l-1.91-1.104v-2.2a1 1 0 0 0-1-1h-2.199l-1.103-1.909a1 1 0 0 0-.607-.466a1 1 0 0 0-.759.1L12 3.251l-1.91-1.105a1 1 0 0 0-1.366.366L7.62 4.422H5.421a1 1 0 0 0-1 1v2.199l-1.91 1.104a1 1 0 0 0-.365 1.367L3.25 12l-1.104 1.908a1.004 1.004 0 0 0 .364 1.367l1.91 1.104v2.199a1 1 0 0 0 1 1h2.2l1.104 1.91a1.01 1.01 0 0 0 .866.5c.174 0 .347-.046.501-.135l1.908-1.104l1.91 1.104a1 1 0 0 0 1.366-.365l1.103-1.91h2.199a1 1 0 0 0 1-1v-2.199l1.91-1.104a1 1 0 0 0 .365-1.367zM9.499 6.99a1.5 1.5 0 1 1-.001 3.001a1.5 1.5 0 0 1 .001-3.001m.3 9.6l-1.6-1.199l6-8l1.6 1.199zm4.7.4a1.5 1.5 0 1 1 .001-3.001a1.5 1.5 0 0 1-.001 3.001" /></svg>                    </span>
                     <p>Best Offers</p>
@@ -29,28 +29,28 @@ export const Footer = () => {
             </div>
 
             {/* company and user details */}
-            <div className='p-10 grid grid-cols-3 capitalize'>
-                <div className='flex flex-col items-start'>
+            <div className='p-10 grid grid-cols-1 md:grid-cols-3 gap-5 justify-center capitalize'>
+                <div className='flex flex-col items-start max-md:items-center  w-full'>
                     <h2 className='text-xl'>Company</h2>
-                    <ul className='flex flex-col items-start mt-5 text-gray-500'>
+                    <ul className='flex flex-col items-start max-md:items-center mt-2 md:mt-5 text-gray-500'>
                         <li>About us</li>
                         <li>contact us</li>
                         <li>privacy policy</li>
                         <li>terms and conditions</li>
                     </ul>
                 </div>
-                <div className='flex flex-col items-start'>
+                <div className='flex flex-col items-start max-md:items-center  w-full'>
                     <h2 className='text-xl'>my account</h2>
-                    <ul className='flex flex-col items-start mt-5 text-gray-500'>
+                    <ul className='flex flex-col items-start max-md:items-center mt-2 md:mt-5 text-gray-500'>
                         <li>dashboard</li>
                         <li>my order</li>
                         <li>recent order</li>
                         <li>update profile</li>
                     </ul>
                 </div>
-                <div className='flex flex-col items-start'>
+                <div className='flex flex-col items-start max-md:items-center  w-full'>
                     <h2 className='text-xl'>Company</h2>
-                    <ul className='flex flex-col items-start mt-5 text-gray-500'>
+                    <ul className='flex flex-col items-start max-md:items-center mt-2 md:mt-5 text-gray-500'>
                         <li>About us</li>
                         <li>contact us</li>
                         <li>privacy policy</li>
@@ -60,7 +60,7 @@ export const Footer = () => {
             </div>
 
             {/* social media */}
-            <div className='flex gap-5 justify-evenly w-6xl mx-auto rounded-md bg-gray-100 items-center p-10'>
+            <div className='flex max-md:flex-col  gap-5 justify-evenly w-full rounded-md bg-gray-100 items-center p-10'>
                 <div className='flex gap-5 items-center'>
                     <div className='p-3 w-fit rounded-full text-white bg-blue-800'>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4z" /></svg>
@@ -84,7 +84,7 @@ export const Footer = () => {
             </div>
 
             {/* company mark */}
-            <p className='text-center text-amber-600/50 p-5'>© 2025 Purecots | Developed By @fintook, All rights reserved.</p>
+            <p className='text-center text-gray-500  p-5'>© 2025 Purecots | Developed By @<span className='text-amber-600/50'>Fintook</span>, All rights reserved.</p>
         </div>
 
     )

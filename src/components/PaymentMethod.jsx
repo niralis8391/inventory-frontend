@@ -21,7 +21,7 @@ const PaymentMethod = () => {
     };
 
     return (
-        <div className="max-w-md mx-auto mt-10 bg-white p-6 rounded-2xl shadow-md">
+        <div className="max-w-md mx-auto mt-10 bg-white p-6 rounded-2xl shadow-md max-sm:mt-5">
             <h2 className="text-xl font-semibold text-gray-800 mb-6">Select Payment Method</h2>
 
             <form onSubmit={handleSubmit} className="space-y-4">
