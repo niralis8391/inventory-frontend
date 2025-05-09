@@ -53,7 +53,7 @@ export const Register = () => {
         <div>
             {loading && <Loading />}
             <form onSubmit={submitHandler} className='border flex flex-col justify-start shadow-2xl max-md:w-xs my-20 border-gray-300 w-1/2 mx-auto p-5 bg-white rounded-xl'>
-                {message && <div className='w-full p-3 rounded-md text-center capitalize bg-orange-300 mb-5'>{message}</div>}
+                {message && <div className='w-full p-3 rounded-md text-center capitalize bg-orange-200 mb-5'>{message}</div>}
                 <label className='text-xl flex flex-col items-start'>
                     Username:
                     <input type='text' name='name' onChange={changeHandler} className='p-2 rounded-md border border-gray-300 block w-full focus:outline-none focus:ring-1 focus:ring-amber-500' />
