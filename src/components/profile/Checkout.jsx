@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import API from '../../API/API';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { cartAction } from '../../store/cart-slice';
 import PaymentMethod from '../PaymentMethod';
 
 export const Checkout = () => {
-    const orderItems = useSelector(state => state.order.items)
-    const orderTotalAmount = useSelector(state => state.order.totalAmount)
     const cartItems = useSelector(state => state.cart.items)
+    const totalAmount = useSelector(state => state.cart.totalAmount);
 
 
     const navigate = useNavigate()
@@ -42,7 +41,7 @@ export const Checkout = () => {
     async function confirmOrder() {
         setLoading(true)
         try {
-            const response = await API.post('/order/createOrder', { items: orderItems, totalAmount: orderTotalAmount }, {
+            const response = await API.post('/order/createOrder', { items: cartItems, totalAmount: totalAmount }, {
                 headers: {
                     "Authorization": `Bearer ${token}`,
                     "Content-Type": "application/json"
@@ -66,6 +65,9 @@ export const Checkout = () => {
         </span>
     }
 
+    if (cartItems.length === 0) {
+        return navigate('/user/my-order')
+    }
 
     return (
         <div className='flex items-start w-full max-md:flex-col-reverse'>
@@ -113,7 +115,7 @@ export const Checkout = () => {
             <div className='w-full p-3 border border-gray-300 rounded-md '>
                 <h2 className='capitalize text-xl font-semibold'>Order Summary</h2>
                 <div className='flex flex-wrap'>
-                    {orderItems.map((items) => {
+                    {cartItems.map((items) => {
                         return <div className='flex gap-3 items-center p-2 mt-5'>
                             <img src={items.image} className='w-20 h-20' />
                             <div>
@@ -128,7 +130,7 @@ export const Checkout = () => {
                 </div>
                 <p className='p-3 font-semibold capitalize border-t border-gray-300 mt-5 flex items-center justify-between cursor-pointer  text-xl' onClick={() => placeOrderHandler(storedItems)}>Total Cost
                     <div className='flex flex-col items-center text-sm'>
-                        <span className='bg-white text-black rounded-md w-fit font-bold text-2xl'>Rs. {orderTotalAmount}</span>
+                        <span className='bg-white text-black rounded-md w-fit font-bold text-2xl'>Rs. {totalAmount}</span>
                     </div>
                 </p>
             </div>
