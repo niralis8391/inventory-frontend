@@ -78,17 +78,17 @@ export const Checkout = () => {
                         <div className='flex max-sm:flex-col w-full gap-5 max-sm:gap-3 text-gray-500 mt-3'>
                             <label>
                                 Name:
-                                <input type='text' value={userData.name} name='name' className='border border-gray-300 text-black p-2 rounded-md block max-sm:w-full' />
+                                <input type='text' value={userData.name} name='name' className='border border-gray-300 text-black p-2 rounded-md block max-sm:w-full focus:outline-none focus:ring-1 focus:ring-amber-500' />
                             </label>
                             <label>
                                 Email:
-                                <input type='email' name='email' value={userData.email} className='border border-gray-300 p-2 rounded-md block disabled:hover:cursor-not-allowed max-sm:w-full' disabled />
+                                <input type='email' name='email' value={userData.email} className='border border-gray-300 p-2 rounded-md block disabled:hover:cursor-not-allowed max-sm:w-full focus:outline-none focus:ring-1 focus:ring-amber-500' disabled />
                             </label>
                         </div>
                         <div className='mt-3'>
                             <label className='text-gray-500'>
                                 Phone:
-                                <input type='text' name='phone' value={userData.phone} className='border text-black border-gray-300 p-2 rounded-md block max-sm:w-full' />
+                                <input type='text' name='phone' value={userData.phone} className='border text-black border-gray-300 p-2 rounded-md block max-sm:w-full focus:outline-none focus:ring-1 focus:ring-amber-500' />
                             </label>
                         </div>
                         <div className='mt-8'>
@@ -96,7 +96,7 @@ export const Checkout = () => {
                             <div className='mt-3 text-gray-500'>
                                 <label>
                                     Address
-                                    <textarea name="address" id="" value={userData.address} className='border text-black border-gray-300 p-2 rounded-md w-full'>
+                                    <textarea name="address" id="" value={userData.address} className='border text-black border-gray-300 p-2 rounded-md w-full focus:outline-none focus:ring-1 focus:ring-amber-500'>
 
                                     </textarea>
                                 </label>

@@ -119,7 +119,7 @@ export const Products = () => {
                 <h3 className="text-md text-gray-500 capitalize py-2 h-20">{product.description}</h3>
                 <p className="text-amber-800 font-semibold">₹ {product.price}</p>
               </div>
-              <button className='w-full px-5 bg-black text-white  mt-5 py-3 hover:cursor-pointer' onClick={() => addToCartHAndler(product)}>Add to cart</button>
+              <button className='w-full px-5 bg-black text-white  mt-5 py-3 hover:cursor-pointer uppercase' onClick={() => addToCartHAndler(product)}>Add to cart</button>
             </div>
           ))
           :
