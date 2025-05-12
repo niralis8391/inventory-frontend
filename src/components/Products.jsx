@@ -126,8 +126,8 @@ export const Products = () => {
           <p className='m-5 w-full text-2xl text-center capitalize'>no products found.</p>
         }
 
-        {bigImage && <div className='absolute top-0 left-0 bg-black/50 inset-0 w-full h-screen backdrop-blur-xs z-40 ' onClick={() => setBigImage(null)}>
-          <img src={bigImage} className='w-full md:w-lg h-fit z-50 mx-auto pt-10' />
+        {bigImage && <div className='fixed top-0 left-0 bg-black/50 inset-0 w-full h-screen backdrop-blur-xs z-40 ' onClick={() => setBigImage(null)}>
+          <img src={bigImage} className='w-full md:w-lg h-fit z-50 mx-auto pt-20 px-5 md:pt-10' />
         </div>}
       </div>
 
