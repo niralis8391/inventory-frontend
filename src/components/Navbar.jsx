@@ -97,7 +97,7 @@ export const Navbar = () => {
             <div className='relative flex items-center justify-between p-10'>
                 <img src={logo} className='w-50 max-[580px]:mx-auto h-fit cursor-pointer' onClick={() => navigate('/')} />
                 <div className=' block md:hidden'>
-                    {!menu && <button className='fixed z-60 top-10 right-5 p-1 rounded-md border-2' onClick={() => setMenu(true)}>
+                    {!menu && <button className='fixed z-60 top-10 right-5 p-1 rounded-md border bg-white' onClick={() => setMenu(true)}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h10M4 12h16M7 12h13M4 18h10" /></svg>
                     </button>}
                     {menu && <button className='fixed z-60 top-8 right-5' onClick={() => setMenu(false)}>
