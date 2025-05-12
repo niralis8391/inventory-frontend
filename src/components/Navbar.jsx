@@ -188,7 +188,7 @@ export const Navbar = () => {
 
             {/* Cart */}
             <div className={`fixed ${cartSelector ? ' right-0' : ' -right-full'} transition-all duration-300 ease-in-out top-0 h-screen w-xs shadow-2xl z-60`}>
-                {cartSelector && <div className='fixed inset-0 backdrop:blur-2xl bg-black/30 z-40'></div>}
+                {cartSelector && <div className='fixed inset-0 backdrop-blur-xs bg-black/30 z-40'></div>}
                 <Cart onCloseCart={closeCartHandler} />
             </div>
 

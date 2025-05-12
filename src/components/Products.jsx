@@ -11,6 +11,9 @@ import { suggessionAction } from '../store/suggest-slice'
 export const Products = () => {
 
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [query, setQuery] = useState("");
+  const [bigImage, setBigImage] = useState(null)
 
   const selectedCategory = useSelector(state => state.category.category);
   const querySlice = useSelector(state => state.suggession.query);
@@ -20,10 +23,6 @@ export const Products = () => {
   const scrollTarget = useSelector(state => state.ui.target);
   const dispatch = useDispatch();
 
-  const [loading, setLoading] = useState(false);
-
-  // search input
-  const [query, setQuery] = useState("");
 
   async function fetchSuggestions(e) {
     e.preventDefault()
@@ -108,11 +107,12 @@ export const Products = () => {
       <div className="flex flex-wrap max-md:justify-center items-center gap-5 w-full  h-full">
         {products.length > 0 ?
           products.map((product) => (
-            <div className="bg-white w-[15rem] max-[450]:w-full max-[950px]:mt-10 h-xl flex flex-col justify-between  items-start  transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl rounded-lg" key={product._id}>
+            <div className="relative bg-white w-[15rem] max-[450]:w-full max-[950px]:mt-10 h-xl flex flex-col justify-between  items-start  transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl rounded-lg" key={product._id}>
               <img
                 src={product.image}
                 alt={product.productName}
                 className='w-full h-64 object-cover '
+                onClick={() => setBigImage(product.image)}
               />
               <div className='flex flex-col justify-between items-start p-4'>
                 <h2 className="text-lg font-bold capitalize mt-4">{product.productName}</h2>
@@ -126,6 +126,9 @@ export const Products = () => {
           <p className='m-5 w-full text-2xl text-center capitalize'>no products found.</p>
         }
 
+        {bigImage && <div className='absolute top-0 left-0 bg-black/50 inset-0 w-full h-screen backdrop-blur-xs z-40 ' onClick={() => setBigImage(null)}>
+          <img src={bigImage} className='w-full md:w-lg h-fit z-50 mx-auto pt-10' />
+        </div>}
       </div>
 
     </div>
