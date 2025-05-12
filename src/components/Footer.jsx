@@ -4,57 +4,56 @@ export const Footer = () => {
     return (
         <div className=''>
             <div className='flex max-md:flex-col max-md:gap-5 max-md:items-start items-center justify-between px-10 p-10 border-b border-gray-300'>
-                <div className='flex w-full gap-3 items-center capitalize max-md:border-none border-r border-gray-300 justify-center'>
+                <div className='flex w-[14rem] md:w-sm mx-auto justify-between md:justify-center  gap-3 items-center capitalize max-md:border-none border-r border-gray-300'>
                     <span className='text-amber-800'>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="m21.47 11.185l-1.03-1.43a2.5 2.5 0 0 0-2.03-1.05h-4.38v-2.14a2.5 2.5 0 0 0-2.5-2.5H4.56a2.507 2.507 0 0 0-2.5 2.5v9.94a1.5 1.5 0 0 0 1.5 1.5h1.22a2.242 2.242 0 0 0 4.44 0h5.56a2.242 2.242 0 0 0 4.44 0h1.22a1.5 1.5 0 0 0 1.5-1.5v-3.87a2.5 2.5 0 0 0-.47-1.45M7 18.935a1.25 1.25 0 1 1 1.25-1.25A1.25 1.25 0 0 1 7 18.935m6.03-1.93H9.15a2.257 2.257 0 0 0-4.3 0H3.56a.5.5 0 0 1-.5-.5v-9.94a1.5 1.5 0 0 1 1.5-1.5h6.97a1.5 1.5 0 0 1 1.5 1.5Zm3.97 1.93a1.25 1.25 0 1 1 1.25-1.25a1.25 1.25 0 0 1-1.25 1.25m3.94-2.43a.5.5 0 0 1-.5.5h-1.29a2.257 2.257 0 0 0-4.3 0h-.82v-7.3h4.38a1.52 1.52 0 0 1 1.22.63l1.03 1.43a1.53 1.53 0 0 1 .28.87Z" /><path fill="currentColor" d="M18.029 12.205h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 0 1" /></svg>
-                    </span>
-                    <p>free shipping</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="m22.031 10.875l-2.136-3.543a1.76 1.76 0 0 0-1.497-.846h-1.677v-.249a2.73 2.73 0 0 0-.804-1.935a2.75 2.75 0 0 0-1.94-.802H3.994a2.73 2.73 0 0 0-2.541 1.687a2.7 2.7 0 0 0-.204 1.05v8.958a1.74 1.74 0 0 0 1.507 1.722q-.007.135 0 .269a3.15 3.15 0 0 0 .948 2.279A3.24 3.24 0 0 0 6 20.46a3.28 3.28 0 0 0 2.285-.956a3.26 3.26 0 0 0 .96-2.279a2 2 0 0 0 0-.248h5.509a2 2 0 0 0 0 .248a3.15 3.15 0 0 0 .948 2.28A3.24 3.24 0 0 0 18 20.5a3.28 3.28 0 0 0 2.285-.956a3.26 3.26 0 0 0 .959-2.279a2 2 0 0 0 0-.249H22a.76.76 0 0 0 .749-.746v-2.876c0-.89-.25-1.762-.719-2.519m-14.293 6.31a1.7 1.7 0 0 1-.519 1.225a1.79 1.79 0 0 1-2.466 0a1.73 1.73 0 0 1-.508-1.234a1.6 1.6 0 0 1 .14-.687c.132-.313.359-.577.648-.757a1.74 1.74 0 0 1 .998-.288c.338 0 .668.1.948.288c.287.183.513.446.65.757c.098.215.15.45.149.687zm3.244-4.976h-4.99a1 1 0 0 1-.999-.995a.994.994 0 0 1 .998-.996h4.991a1 1 0 0 1 .998.996a.994.994 0 0 1-.998.995m0-3.424h-4.99a1 1 0 0 1-.999-.995a.994.994 0 0 1 .998-.995h4.991a1 1 0 0 1 .998.995a.994.994 0 0 1-.998.995m8.734 8.4a1.7 1.7 0 0 1-.52 1.225a1.79 1.79 0 0 1-2.465 0a1.73 1.73 0 0 1-.509-1.234a1.64 1.64 0 0 1 .33-1.006c.246-.327.599-.56.998-.657h.25a.3.3 0 0 1 .139 0h.2c.303.035.592.148.838.329c.247.181.44.425.559.707c.099.215.15.45.15.686z" /><path fill="currentColor" d="M17.96 15.434a.3.3 0 0 0-.14 0z" /></svg>                    </span>
+                    <p className='max-md:w-full'>free shipping</p>
                 </div>
-                <div className='flex w-full gap-3 items-center capitalize max-md:border-none border-r border-gray-300 justify-center'>
+                <div className='flex w-[14rem] md:w-sm mx-auto justify-between md:justify-center  gap-3 items-center capitalize max-md:border-none border-r border-gray-300'>
                     <span className='text-amber-800'>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="m21 15.46l-5.27-.61l-2.52 2.52a15.05 15.05 0 0 1-6.59-6.59l2.53-2.53L8.54 3H3.03C2.45 13.18 10.82 21.55 21 20.97z" /></svg>
                     </span>
-                    <p>Support 24/7 At Anytime</p>
+                    <p className='max-md:w-full'>Support 24/7 At Anytime</p>
                 </div>
-                <div className='flex w-full gap-3 items-center capitalize max-md:border-none border-r border-gray-300 justify-center'>
+                <div className='flex w-[14rem] md:w-sm mx-auto justify-between md:justify-center  gap-3 items-center capitalize max-md:border-none border-r border-gray-300'>
                     <span className='text-amber-800'>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512"><path fill="currentColor" d="M32 376a56 56 0 0 0 56 56h336a56 56 0 0 0 56-56V222H32Zm66-76a30 30 0 0 1 30-30h48a30 30 0 0 1 30 30v20a30 30 0 0 1-30 30h-48a30 30 0 0 1-30-30ZM424 80H88a56 56 0 0 0-56 56v26h448v-26a56 56 0 0 0-56-56" /></svg>                    </span>
-                    <p>Secure Payment</p>
+                    <p className='max-md:w-full'>Secure Payment</p>
                 </div>
-                <div className='flex w-full gap-3 items-center capitalize justify-center'>
+                <div className='flex w-[14rem] md:w-sm mx-auto justify-between md:justify-center  gap-3 items-center capitalize'>
                     <span className='text-amber-800'>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="m20.749 12l1.104-1.908a1 1 0 0 0-.365-1.366l-1.91-1.104v-2.2a1 1 0 0 0-1-1h-2.199l-1.103-1.909a1 1 0 0 0-.607-.466a1 1 0 0 0-.759.1L12 3.251l-1.91-1.105a1 1 0 0 0-1.366.366L7.62 4.422H5.421a1 1 0 0 0-1 1v2.199l-1.91 1.104a1 1 0 0 0-.365 1.367L3.25 12l-1.104 1.908a1.004 1.004 0 0 0 .364 1.367l1.91 1.104v2.199a1 1 0 0 0 1 1h2.2l1.104 1.91a1.01 1.01 0 0 0 .866.5c.174 0 .347-.046.501-.135l1.908-1.104l1.91 1.104a1 1 0 0 0 1.366-.365l1.103-1.91h2.199a1 1 0 0 0 1-1v-2.199l1.91-1.104a1 1 0 0 0 .365-1.367zM9.499 6.99a1.5 1.5 0 1 1-.001 3.001a1.5 1.5 0 0 1 .001-3.001m.3 9.6l-1.6-1.199l6-8l1.6 1.199zm4.7.4a1.5 1.5 0 1 1 .001-3.001a1.5 1.5 0 0 1-.001 3.001" /></svg>                    </span>
-                    <p>Best Offers</p>
+                    <p className='max-md:w-full'>Best Offers</p>
                 </div>
             </div>
 
             {/* company and user details */}
-            <div className='p-10 grid grid-cols-1 md:grid-cols-3 gap-5 justify-center capitalize'>
-                <div className='flex flex-col items-start max-md:items-center  w-full'>
-                    <h2 className='text-xl'>Company</h2>
-                    <ul className='flex flex-col items-start max-md:items-center mt-2 md:mt-5 text-gray-500'>
-                        <li>About us</li>
-                        <li>contact us</li>
-                        <li>privacy policy</li>
-                        <li>terms and conditions</li>
+            <div className='p-10 md:p-20 grid grid-cols-1 md:grid-cols-3 gap-5 justify-center capitalize'>
+                <div className='flex flex-col items-start max-md:items-center justify-start w-[14rem] md:w-full  mx-auto'>
+                    <h2 className='w-full text-xl'>Company</h2>
+                    <ul className='w-full flex flex-col items-start max-md:items-center mt-2 md:mt-5 text-gray-500'>
+                        <li className='w-full'>About us</li>
+                        <li className='w-full'>contact us</li>
+                        <li className='w-full'>privacy policy</li>
+                        <li className='w-full'>terms and conditions</li>
                     </ul>
                 </div>
-                <div className='flex flex-col items-start max-md:items-center  w-full'>
-                    <h2 className='text-xl'>my account</h2>
-                    <ul className='flex flex-col items-start max-md:items-center mt-2 md:mt-5 text-gray-500'>
-                        <li>dashboard</li>
-                        <li>my order</li>
-                        <li>recent order</li>
-                        <li>update profile</li>
+                <div className='flex flex-col items-start max-md:items-center justify-start w-[14rem] md:w-full  mx-auto'>
+                    <h2 className='w-full text-xl'>my account</h2>
+                    <ul className='w-full flex flex-col items-start max-md:items-center mt-2 md:mt-5 text-gray-500'>
+                        <li className='w-full'>dashboard</li>
+                        <li className='w-full'>my order</li>
+                        <li className='w-full'>recent order</li>
+                        <li className='w-full'>update profile</li>
                     </ul>
                 </div>
-                <div className='flex flex-col items-start max-md:items-center  w-full'>
-                    <h2 className='text-xl'>Company</h2>
-                    <ul className='flex flex-col items-start max-md:items-center mt-2 md:mt-5 text-gray-500'>
-                        <li>About us</li>
-                        <li>contact us</li>
-                        <li>privacy policy</li>
-                        <li>terms and conditions</li>
+                <div className='flex flex-col items-start max-md:items-center justify-start w-[14rem] md:w-full  mx-auto'>
+                    <h2 className='w-full text-xl'>Company</h2>
+                    <ul className='w-full flex flex-col items-start max-md:items-center mt-2 md:mt-5 text-gray-500'>
+                        <li className='w-full'>About us</li>
+                        <li className='w-full'>contact us</li>
+                        <li className='w-full'>privacy policy</li>
+                        <li className='w-full'>terms and conditions</li>
                     </ul>
                 </div>
             </div>

@@ -46,7 +46,7 @@ export const Order = () => {
     }
 
     return (
-        <div className='w-sm md:w-full max-md:overflow-x-scroll'>
+        <div className='w-full max-md:overflow-x-scroll max-md:overflow-y-scroll max-md:h-[30rem]'>
             <h2 className='text-xl font-semibold'>My Order</h2>
             <table className='mt-5 '>
                 <thead className='bg-gray-100'>

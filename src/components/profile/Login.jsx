@@ -3,6 +3,7 @@ import { useState } from 'react'
 import API from '../../API/API';
 import { useNavigate } from 'react-router-dom';
 import { Loading } from '../../UI/Loading';
+import encryptData from '../../Utils/encrypt'
 
 export const Login = () => {
 
@@ -28,7 +29,10 @@ export const Login = () => {
         e.preventDefault()
         setLoading(true)
         try {
-            const response = await API.post('/customer/login', userData, {
+
+            const encryptedData = encryptData(userData)
+            const payload = { payload: encryptedData };
+            const response = await API.post('/customer/login', payload, {
                 headers: {
                     "Content-Type": "application/json"
                 }

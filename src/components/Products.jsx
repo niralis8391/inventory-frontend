@@ -59,28 +59,28 @@ export const Products = () => {
 
   return (
     <div className='p-10 h-2xl h-full bg-gray-100' ref={sectionRef}>
-      <div className='flex items-center md:hidden'>
+      <div className='flex items-center min-[950px]:hidden justify-center'>
         <input type='search' className='bg-white border focus:outline-none focus:ring-1 focus:ring-amber-500 border-gray-300 p-2 w-sm rounded-l-md' placeholder='Search this blog' />
         <button type='button' className='p-2 bg-orange-200 rounded-r-md cursor-pointer text-white border border-orange-200'>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M9.5 16q-2.725 0-4.612-1.888T3 9.5t1.888-4.612T9.5 3t4.613 1.888T16 9.5q0 1.1-.35 2.075T14.7 13.3l5.6 5.6q.275.275.275.7t-.275.7t-.7.275t-.7-.275l-5.6-5.6q-.75.6-1.725.95T9.5 16m0-2q1.875 0 3.188-1.312T14 9.5t-1.312-3.187T9.5 5T6.313 6.313T5 9.5t1.313 3.188T9.5 14" /></svg>
         </button>
       </div>
       {products.length > 0 && <h2 className='mt-3 capitalize text-2xl font-semibold p-3 w-1/4 max-md:w-full text-center mx-auto border-b border-gray-300 rounded-xl'>{selectedCategory}</h2>}
-      <div className="flex flex-wrap max-md:justify-center items-center gap-3 w-full  h-full mt-10">
+      <div className="flex flex-wrap max-md:justify-center items-center gap-5 w-full  h-full mt-10">
         {products.length > 0 ?
           products.map((product) => (
-            <div className="bg-white border-2 w-[15rem] h-xl flex flex-col justify-between  items-start border-gray-200 transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl rounded-lg" key={product._id}>
+            <div className="bg-white w-[15rem] h-xl flex flex-col justify-between  items-start  transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl rounded-lg" key={product._id}>
               <img
                 src={product.image}
                 alt={product.productName}
-                className='w-full h-64 object-cover rounded-t-md'
+                className='w-full h-64 object-cover '
               />
               <div className='flex flex-col justify-between items-start p-4'>
-                <h2 className="text-lg font-semibold capitalize mt-4">{product.productName}</h2>
-                <h3 className="text-lg text-gray-600 capitalize py-2 h-20">{product.description}</h3>
-                <p className="text-amber-800 font-semibold">₹{product.price}</p>
-                <button className='px-5 bg-black text-white rounded-md mt-5 py-1 hover:cursor-pointer' onClick={() => addToCartHAndler(product)}>Add to cart</button>
+                <h2 className="text-lg font-bold capitalize mt-4">{product.productName}</h2>
+                <h3 className="text-md text-gray-500 capitalize py-2 h-20">{product.description}</h3>
+                <p className="text-amber-800 font-semibold">₹ {product.price}</p>
               </div>
+              <button className='w-full px-5 bg-black text-white  mt-5 py-3 hover:cursor-pointer' onClick={() => addToCartHAndler(product)}>Add to cart</button>
             </div>
           ))
           :

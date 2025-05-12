@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import API from '../../API/API';
 import { useNavigate } from 'react-router-dom';
+import encryptData from '../../Utils/encrypt';
 
 export const UpdataProfile = () => {
 
@@ -43,13 +44,14 @@ export const UpdataProfile = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await API.put('/customer/updateProfile', formData, {
+            const encryptedData = encryptData(formData)
+            const payload = { payload: encryptedData };
+            const response = await API.put('/customer/updateProfile', payload, {
                 headers: {
                     "Authorization": `Bearer ${token}`,
                     "Content-Type": "application/json"
                 }
             })
-            console.log(response)
             if (response.status === 200) {
                 navigate('/user/my-account')
             }
