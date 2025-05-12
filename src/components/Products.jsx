@@ -108,7 +108,7 @@ export const Products = () => {
       <div className="flex flex-wrap max-md:justify-center items-center gap-5 w-full  h-full">
         {products.length > 0 ?
           products.map((product) => (
-            <div className="bg-white w-[15rem] max-[950px]:mt-10 h-xl flex flex-col justify-between  items-start  transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl rounded-lg" key={product._id}>
+            <div className="bg-white w-[15rem] max-[450]:w-full max-[950px]:mt-10 h-xl flex flex-col justify-between  items-start  transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl rounded-lg" key={product._id}>
               <img
                 src={product.image}
                 alt={product.productName}
