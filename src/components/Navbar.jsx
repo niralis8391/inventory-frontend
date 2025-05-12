@@ -164,7 +164,7 @@ export const Navbar = () => {
 
                     {/* floating cart */}
                     <motion.div
-                        className="fixed w-24 h-30 right-4 top-1/3 z-50 bg-orange-200 rounded-md cursor-pointer"
+                        className="fixed w-24 h-30 right-4 top-1/3 z-40 bg-orange-200 rounded-md cursor-pointer"
                         onClick={showCartHandler}
                         animate={{ y: [0, 5, 0] }}
                         transition={{
