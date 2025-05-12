@@ -83,7 +83,7 @@ export const Footer = () => {
             </div>
 
             {/* company mark */}
-            <p className='text-center text-gray-500  p-5'>© 2025 Purecots | Developed By @<span className='text-amber-600/50'>Fintook</span>, All rights reserved.</p>
+            <p className='text-center text-gray-500 max-sm:text-xs p-5'>© 2025 Purecots | Developed By @<span className='text-amber-600/50'>Fintook</span>, All rights reserved.</p>
         </div>
 
     )
