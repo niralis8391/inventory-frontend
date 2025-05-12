@@ -42,7 +42,7 @@ export const Order = () => {
     }
 
     if (order.length === 0) {
-        return <p className='capitalize'>No Orders Yet. Shop something</p>
+        return <p className='capitalize h-[20rem]'>No Orders Yet. Shop something</p>
     }
 
     return (

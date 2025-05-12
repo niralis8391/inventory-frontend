@@ -25,7 +25,7 @@ export const User = () => {
                 </div>
                 <SideBar onshowDashBoard={showDashBoard} onCloseDashBoardHandler={closeDashBoardHandler} />
             </div>
-            <div className='p-5 w-full max-md:py-16  max-sm:h-[40rem] max-md:h-[35rem]'>
+            <div className='p-5 w-full max-md:py-16  h-fit'>
                 <Outlet />
             </div>
         </div>

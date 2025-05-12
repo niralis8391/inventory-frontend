@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { categoryAction } from '../store/category-slice'
 import { useDispatch, useSelector } from 'react-redux';
 import { uiSliceAction } from '../store/ui-slice'
+import { suggessionAction } from '../store/suggest-slice'
 
 import { Cart } from '../pages/Cart';
 import logo from '../assets/purecotslogo.png.jpg'
@@ -62,7 +63,15 @@ export const Navbar = () => {
         fetchName()
     }, [])
 
-    console.log(menu)
+    // search input
+    const [query, setQuery] = useState("");
+
+    async function fetchSuggestions(e) {
+        e.preventDefault()
+        const res = await API.get(`/product/suggest?search=${query}`);
+        dispatch(suggessionAction.searchProduct(res.data))
+        dispatch(suggessionAction.setQuery(query))
+    }
 
 
     return (
@@ -86,9 +95,9 @@ export const Navbar = () => {
             </div> */}
 
             <div className='relative flex items-center justify-between p-10'>
-                <img src={logo} className='w-50 h-fit cursor-pointer' onClick={() => navigate('/')} />
+                <img src={logo} className='w-50 max-[580px]:mx-auto h-fit cursor-pointer' onClick={() => navigate('/')} />
                 <div className=' block md:hidden'>
-                    {!menu && <button className='fixed z-60 top-8 right-5 p-1 rounded-md border-2' onClick={() => setMenu(true)}>
+                    {!menu && <button className='fixed z-60 top-10 right-5 p-1 rounded-md border-2' onClick={() => setMenu(true)}>
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h10M4 12h16M7 12h13M4 18h10" /></svg>
                     </button>}
                     {menu && <button className='fixed z-60 top-8 right-5' onClick={() => setMenu(false)}>
@@ -96,7 +105,7 @@ export const Navbar = () => {
                     </button>}
                 </div>
                 <div className={`max-md:fixed max-md:h-full max-md:z-50 max-md:justify-start max-md:items-start max-md:w-xs max-md:p-5 max-md:shadow-2xl max-md:bg-white ${menu ? 'right-0' : '-right-full'} max-md:flex-col max-md:top-0 flex items-center justify-between gap-2 transition-all duration-300 ease-in-out`}>
-                    <div className='flex gap-5 items-center justify-center'>
+                    <div className='flex items-center justify-center'>
                         <div class="">
                             <div class="relative group transition-all duration-300 ease-in-out">
                                 <button
@@ -107,57 +116,40 @@ export const Navbar = () => {
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="m7 10l5 5l5-5z" /></svg>
                                 </button>
                                 {showDropdown && (
-                                    <div className="absolute left-0 top-10 z-50 transition-all duration-300 ease-in-out w-40 bg-white shadow-lg rounded-lg border">
+                                    <motion.div
+                                        className="absolute left-0 top-12 z-50 w-40 bg-white shadow-lg rounded-lg border border-gray-300"
+                                        initial={{ y: -20, opacity: 0, scaleY: 0.9 }}
+                                        animate={{ y: 0, opacity: 1, scaleY: 1 }}
+                                        exit={{ y: -20, opacity: 0, scaleY: 0.9 }}
+                                        transition={{
+                                            type: "spring",
+                                            stiffness: 300,
+                                            damping: 20
+                                        }}
+                                    >
                                         <ul className="text-gray-800 divide-y divide-gray-200">
                                             <li className="px-4 py-2 rounded-md hover:bg-gray-100 cursor-pointer" onClick={() => changeHandler('fashion')}>Fashion</li>
                                             <li className="px-4 py-2 rounded-md hover:bg-gray-100 cursor-pointer" onClick={() => changeHandler('jewellery')}>Jewellery</li>
                                         </ul>
-                                    </div>
+                                    </motion.div>
                                 )}
+
                             </div>
                         </div>
 
-                        {/* floating category */}
-                        {/* <div class="fixed left-4 top-1/3 transform -translate-y-1/2 z-50 transition-all duration-300 ease-in-out hidden max-[920px]:block">
-                            <div class="relative group transition-all duration-300 ease-in-out">
-                                <motion.button
-                                    class="bg-amber-600 text-white px-4 py-2 rounded-lg shadow-md hover:bg-amber-700 flex gap-1 items-start cursor-pointer"
-                                    animate={{ y: [0, 5, 0] }}
-                                    transition={{
-                                        duration: 1.5,
-                                        repeat: Infinity,
-                                        ease: "linear",
-                                    }}
-                                >
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M6.5 11L12 2l5.5 9zm11 11q-1.875 0-3.187-1.312T13 17.5t1.313-3.187T17.5 13t3.188 1.313T22 17.5t-1.312 3.188T17.5 22M3 21.5v-8h8v8zM17.5 20q1.05 0 1.775-.725T20 17.5t-.725-1.775T17.5 15t-1.775.725T15 17.5t.725 1.775T17.5 20M5 19.5h4v-4H5zM10.05 9h3.9L12 5.85zm7.45 8.5" /></svg>
-                                    Categories
-                                </motion.button>
-                                <div class="absolute left-0 top-10 transition-all duration-300 ease-in-out w-40 hidden group-hover:block bg-white shadow-lg rounded-lg border">
-                                    <ul class="text-gray-800 divide-y divide-gray-200">
-                                        <li class="px-4 py-2 rounded-md hover:bg-gray-100 cursor-pointer">Fashion</li>
-                                        <li class="px-4 py-2 rounded-md hover:bg-gray-100 cursor-pointer">Jewellery</li>
-                                        <li class="px-4 py-2 rounded-md hover:bg-gray-100 cursor-pointer">Electronics</li>
-                                        <li class="px-4 py-2 rounded-md hover:bg-gray-100 cursor-pointer">Home Decor</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div> */}
-
-
-                        <div className='flex items-center max-[950px]:hidden'>
-                            <input type='search' className='bg-white border focus:outline-none focus:ring-1 focus:ring-amber-500 border-gray-300 p-2 w-sm rounded-l-md' placeholder='Search this blog' />
-                            <button type='button' className='p-2 bg-orange-200 rounded-r-md cursor-pointer text-white border border-orange-200'>
+                        <form className='flex items-center max-[950px]:hidden' onSubmit={fetchSuggestions}>
+                            <input
+                                type='search'
+                                className='bg-white border focus:outline-none focus:ring-1 focus:ring-amber-500 border-gray-300 p-2 w-sm rounded-l-md'
+                                placeholder='Search this blog'
+                                required
+                                onChange={(e) => setQuery(e.target.value)}
+                            />
+                            <button className='p-2 bg-orange-200 rounded-r-md cursor-pointer text-white border border-orange-200'>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M9.5 16q-2.725 0-4.612-1.888T3 9.5t1.888-4.612T9.5 3t4.613 1.888T16 9.5q0 1.1-.35 2.075T14.7 13.3l5.6 5.6q.275.275.275.7t-.275.7t-.7.275t-.7-.275l-5.6-5.6q-.75.6-1.725.95T9.5 16m0-2q1.875 0 3.188-1.312T14 9.5t-1.312-3.187T9.5 5T6.313 6.313T5 9.5t1.313 3.188T9.5 14" /></svg>
                             </button>
-                        </div>
-                        {/* <select defaultValue="" className='bg-white rounded-md p-2'>
-                        <option value="" disabled>Language</option>
-                        <option value="english">English</option>
-                        <option value="french">French</option>
-                        <option value="german">German</option>
-                    </select> */}
+                        </form>
                     </div>
-
                     <div className=''>
                         <div className='flex max-md:flex-col max-md:items-start items-center gap-3'>
                             <button type='button' className='flex gap-2 items-center  text-black font-semibold cursor-pointer'>
