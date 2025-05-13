@@ -7,7 +7,7 @@ export const Dashboard = () => {
             <div className='flex items-center gap-5 mt-5 max-md:flex-col max-md:items-start'>
                 <div className='flex items-center gap-3 p-5 border border-gray-300 rounded-md w-[15rem]'>
                     <p className='p-2 rounded-full bg-orange-300 text-white'>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1"><circle cx="10" cy="19" r="1.5" /><circle cx="17" cy="19" r="1.5" /><path stroke-linecap="round" stroke-linejoin="round" d="M3.5 4h2l3.504 11H17" /><path stroke-linecap="round" stroke-linejoin="round" d="M8.224 12.5L6.3 6.5h12.507a.5.5 0 0 1 .475.658l-1.667 5a.5.5 0 0 1-.474.342z" /></g></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" strokeWidth="1"><circle cx="10" cy="19" r="1.5" /><circle cx="17" cy="19" r="1.5" /><path strokeLinecap="round" strokeLinejoin="round" d="M3.5 4h2l3.504 11H17" /><path strokeLinecap="round" strokeLinejoin="round" d="M8.224 12.5L6.3 6.5h12.507a.5.5 0 0 1 .475.658l-1.667 5a.5.5 0 0 1-.474.342z" /></g></svg>
                     </p>
                     <div>
                         <h3 className='text-gray-500'>Total Orders</h3>
@@ -16,7 +16,7 @@ export const Dashboard = () => {
                 </div>
                 <div className='flex items-center gap-3 p-5 border border-gray-300 rounded-md w-[15rem]'>
                     <p className='p-2 rounded-full bg-orange-300 text-white'>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M6.876 15.124A6.002 6.002 0 0 0 17.658 14h2.09a8.003 8.003 0 0 1-14.316 2.568L3 19v-6h6zm10.249-6.249A6.004 6.004 0 0 0 6.34 10H4.25a8.005 8.005 0 0 1 14.32-2.57L21 5v6h-6z" /></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24"><path fill="currentColor" fillRule="evenodd" d="M6.876 15.124A6.002 6.002 0 0 0 17.658 14h2.09a8.003 8.003 0 0 1-14.316 2.568L3 19v-6h6zm10.249-6.249A6.004 6.004 0 0 0 6.34 10H4.25a8.005 8.005 0 0 1 14.32-2.57L21 5v6h-6z" /></svg>
                     </p>
                     <div>
                         <h3 className='text-gray-500'>Pending Orders</h3>

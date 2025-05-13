@@ -58,7 +58,6 @@ export const UpdataProfile = () => {
         } catch (error) {
             console.log(error)
         }
-        console.log('Updating Profile:', formData);
     };
 
     return (

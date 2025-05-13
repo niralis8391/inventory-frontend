@@ -25,7 +25,7 @@ const PaymentMethod = ({ onPaymentMethod }) => {
         <div className="max-w-md mx-auto mt-10 bg-white p-6 rounded-2xl shadow-md max-sm:mt-5">
             <h2 className="text-xl font-semibold text-gray-800 mb-6">Select Payment Method</h2>
 
-            <form className="space-y-4">
+            <div className="space-y-4">
                 <div className="space-y-2">
                     {/* UPI Option */}
                     <label className="flex items-center p-3 border border-gray-300 rounded-lg cursor-pointer hover:border-amber-500 transition">
@@ -85,7 +85,7 @@ const PaymentMethod = ({ onPaymentMethod }) => {
                 >
                     Continue to Payment
                 </button> */}
-            </form>
+            </div>
         </div>
     );
 };

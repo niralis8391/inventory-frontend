@@ -99,9 +99,6 @@ export const Checkout = () => {
     }
 
 
-
-    console.log(shippingDetails)
-
     return (
         <div className='flex items-start w-full max-md:flex-col-reverse'>
             <div className='w-full flex flex-col items-start gap-5 max-md:mt-5'>
@@ -111,17 +108,17 @@ export const Checkout = () => {
                         <div className='flex max-sm:flex-col w-full gap-5 max-sm:gap-3 text-gray-500 mt-3'>
                             <label>
                                 Name:
-                                <input type='text' value={shippingDetails.name} name='name' className='border border-gray-300 text-black p-2 rounded-md block max-sm:w-full focus:outline-none focus:ring-1 focus:ring-amber-500' onChange={shippingDetailsChangeHandler} />
+                                <input type='text' value={shippingDetails.name || ""} name='name' className='border border-gray-300 text-black p-2 rounded-md block max-sm:w-full focus:outline-none focus:ring-1 focus:ring-amber-500' onChange={shippingDetailsChangeHandler} />
                             </label>
                             <label>
                                 Email:
-                                <input type='email' name='email' value={userData.email} className='border border-gray-300 p-2 rounded-md block disabled:hover:cursor-not-allowed max-sm:w-full focus:outline-none focus:ring-1 focus:ring-amber-500' disabled />
+                                <input type='email' name='email' value={userData.email || ""} className='border border-gray-300 p-2 rounded-md block disabled:hover:cursor-not-allowed max-sm:w-full focus:outline-none focus:ring-1 focus:ring-amber-500' disabled />
                             </label>
                         </div>
                         <div className='mt-3'>
                             <label className='text-gray-500'>
                                 Phone:
-                                <input type='text' name='phone' value={shippingDetails.phone} className='border text-black border-gray-300 p-2 rounded-md block max-sm:w-full focus:outline-none focus:ring-1 focus:ring-amber-500' onChange={shippingDetailsChangeHandler} />
+                                <input type='text' name='phone' value={shippingDetails.phone || ""} className='border text-black border-gray-300 p-2 rounded-md block max-sm:w-full focus:outline-none focus:ring-1 focus:ring-amber-500' onChange={shippingDetailsChangeHandler} />
                             </label>
                         </div>
                         <div className='mt-8'>
@@ -129,7 +126,7 @@ export const Checkout = () => {
                             <div className='mt-3 text-gray-500'>
                                 <label>
                                     Address
-                                    <textarea name="address" id="" onChange={shippingDetailsChangeHandler} value={shippingDetails.address} className='border text-black border-gray-300 p-2 rounded-md w-full focus:outline-none focus:ring-1 focus:ring-amber-500'>
+                                    <textarea name="address" id="" onChange={shippingDetailsChangeHandler} value={shippingDetails.address || ""} className='border text-black border-gray-300 p-2 rounded-md w-full focus:outline-none focus:ring-1 focus:ring-amber-500'>
 
                                     </textarea>
                                 </label>
@@ -149,7 +146,7 @@ export const Checkout = () => {
                 <h2 className='capitalize text-xl font-semibold'>Order Summary</h2>
                 <div className='flex flex-wrap'>
                     {cartItems.map((items) => {
-                        return <div className='flex gap-3 items-center p-2 mt-5'>
+                        return <div className='flex gap-3 items-center p-2 mt-5' key={items._id}>
                             <img src={items.image} className='w-20 h-20' />
                             <div>
                                 <p className='font-semibold'>{items.productName}</p>
@@ -161,11 +158,11 @@ export const Checkout = () => {
                         </div>
                     })}
                 </div>
-                <p className='p-3 font-semibold capitalize border-t border-gray-300 mt-5 flex items-center justify-between cursor-pointer  text-xl' onClick={() => placeOrderHandler(storedItems)}>Total Cost
+                <div className='p-3 font-semibold capitalize border-t border-gray-300 mt-5 flex items-center justify-between cursor-pointer  text-xl' onClick={() => placeOrderHandler(storedItems)}>Total Cost
                     <div className='flex flex-col items-center text-sm'>
                         <span className='bg-white text-black rounded-md w-fit font-bold text-2xl'>Rs. {totalAmount}</span>
                     </div>
-                </p>
+                </div>
             </div>
         </div>
     )

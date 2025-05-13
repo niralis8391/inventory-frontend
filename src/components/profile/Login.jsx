@@ -37,7 +37,6 @@ export const Login = () => {
                     "Content-Type": "application/json"
                 }
             })
-            console.log(response)
             if (response.status === 200) {
                 navigate('/user')
                 localStorage.setItem("token", response.data.token)
