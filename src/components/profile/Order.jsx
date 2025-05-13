@@ -71,7 +71,7 @@ export const Order = () => {
                             <td className='pr-8 p-2'>{items.orderNumber}</td>
                             <td className='pr-8 p-2'>{formattedDate}</td>
                             <td className='pr-8 p-2'>{items.method || "Cash"}</td>
-                            <td className='pr-8 p-2 text-amber-500'>{items.status}</td>
+                            <td className={`pr-8 p-2 ${items.status === 'completed' ? 'text-green-500' : 'text-amber-500'}`}>{items.status}</td>
                             <td className='pr-8 p-2'>{items.totalAmount}</td>
                             <td><button className='p-1 rounded-md bg-amber-600/50 text-amber-800 hover:text-white hover:bg-amber-600 cursor-pointer' onClick={() => moreDetailsHandler(items)}>details</button></td>
                         </tr>
