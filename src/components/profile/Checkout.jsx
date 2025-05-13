@@ -6,19 +6,31 @@ import { cartAction } from '../../store/cart-slice';
 import PaymentMethod from '../PaymentMethod';
 
 export const Checkout = () => {
+
     const cartItems = useSelector(state => state.cart.items)
     const totalAmount = useSelector(state => state.cart.totalAmount);
 
+    const dispatch = useDispatch()
+
+    const token = localStorage.getItem("token")
 
     const navigate = useNavigate()
 
     const [userData, setUserData] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [shippingDetails, setShippingDetails] = useState({
+        name: "",
+        phone: null,
+        address: "",
+        method: ""
+    });
 
+    useEffect(() => {
+        if (cartItems.length === 0) {
+            navigate('/user/my-order');
+        }
+    }, [cartItems, navigate]);
 
-    const dispatch = useDispatch()
-
-    const token = localStorage.getItem("token")
 
     useEffect(() => {
         async function fetchCustomerDate() {
@@ -29,7 +41,14 @@ export const Checkout = () => {
                         "Content-Type": "application/json"
                     }
                 })
-                setUserData(response.data.data)
+                const data = response.data.data;
+                setUserData(data);
+                setShippingDetails((prev) => ({
+                    ...prev,
+                    name: data.name || "",
+                    phone: data.phone || "",
+                    address: data.address || ""
+                }));
             } catch (error) {
                 console.log(error)
             }
@@ -37,11 +56,26 @@ export const Checkout = () => {
         fetchCustomerDate()
     }, []);
 
+    function shippingDetailsChangeHandler(e) {
+        const { name, value } = e.target
+        setShippingDetails((predata) => ({
+            ...predata,
+            [name]: value
+        }))
+    }
+
+    function getPaymentMethod(method) {
+        setShippingDetails((predata) => ({
+            ...predata,
+            method: method
+        }))
+    }
+
 
     async function confirmOrder() {
         setLoading(true)
         try {
-            const response = await API.post('/order/createOrder', { items: cartItems, totalAmount: totalAmount }, {
+            const response = await API.post('/order/createOrder', { items: cartItems, totalAmount: totalAmount, shippingDetails: shippingDetails }, {
                 headers: {
                     "Authorization": `Bearer ${token}`,
                     "Content-Type": "application/json"
@@ -51,7 +85,6 @@ export const Checkout = () => {
                 navigate('/user/my-order')
                 dispatch(cartAction.cleaneCart())
             }
-            console.log(response)
         } catch (error) {
             console.log(error)
         } finally {
@@ -65,9 +98,9 @@ export const Checkout = () => {
         </span>
     }
 
-    if (cartItems.length === 0) {
-        return navigate('/user/my-order')
-    }
+
+
+    console.log(shippingDetails)
 
     return (
         <div className='flex items-start w-full max-md:flex-col-reverse'>
@@ -78,7 +111,7 @@ export const Checkout = () => {
                         <div className='flex max-sm:flex-col w-full gap-5 max-sm:gap-3 text-gray-500 mt-3'>
                             <label>
                                 Name:
-                                <input type='text' value={userData.name} name='name' className='border border-gray-300 text-black p-2 rounded-md block max-sm:w-full focus:outline-none focus:ring-1 focus:ring-amber-500' />
+                                <input type='text' value={shippingDetails.name} name='name' className='border border-gray-300 text-black p-2 rounded-md block max-sm:w-full focus:outline-none focus:ring-1 focus:ring-amber-500' onChange={shippingDetailsChangeHandler} />
                             </label>
                             <label>
                                 Email:
@@ -88,7 +121,7 @@ export const Checkout = () => {
                         <div className='mt-3'>
                             <label className='text-gray-500'>
                                 Phone:
-                                <input type='text' name='phone' value={userData.phone} className='border text-black border-gray-300 p-2 rounded-md block max-sm:w-full focus:outline-none focus:ring-1 focus:ring-amber-500' />
+                                <input type='text' name='phone' value={shippingDetails.phone} className='border text-black border-gray-300 p-2 rounded-md block max-sm:w-full focus:outline-none focus:ring-1 focus:ring-amber-500' onChange={shippingDetailsChangeHandler} />
                             </label>
                         </div>
                         <div className='mt-8'>
@@ -96,13 +129,13 @@ export const Checkout = () => {
                             <div className='mt-3 text-gray-500'>
                                 <label>
                                     Address
-                                    <textarea name="address" id="" value={userData.address} className='border text-black border-gray-300 p-2 rounded-md w-full focus:outline-none focus:ring-1 focus:ring-amber-500'>
+                                    <textarea name="address" id="" onChange={shippingDetailsChangeHandler} value={shippingDetails.address} className='border text-black border-gray-300 p-2 rounded-md w-full focus:outline-none focus:ring-1 focus:ring-amber-500'>
 
                                     </textarea>
                                 </label>
                             </div>
                         </div>
-                        <PaymentMethod />
+                        <PaymentMethod onPaymentMethod={getPaymentMethod} />
                     </form>
                     <div className='flex items-center gap-5 mt-5 '>
                         <button className='capitalize w-full p-3 rounded-md border-2 border-transparent hover:border-gray-300 bg-gray-200 text-lg text-gray-600 cursor-pointer flex items-center' onClick={() => navigate('/')}>

@@ -1,30 +1,31 @@
 import React, { useState } from 'react';
 import qr from '../assets/qr.webp'
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
-const PaymentMethod = () => {
+const PaymentMethod = ({ onPaymentMethod }) => {
     const [selectedMethod, setSelectedMethod] = useState('');
     const [upiId, setUpiId] = useState('');
-
-    const navigate = useNavigate()
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        if (selectedMethod === 'upi' && !upiId) {
-            alert('Please enter your UPI ID');
-            return;
-        }
-        navigate('/user/my-order')
-        console.log('Payment Method:', selectedMethod);
-        console.log('UPI ID:', upiId);
-        // Proceed with payment logic
-    };
+    // const handleSubmit = (e) => {
+    //     e.preventDefault();
+    //     if (selectedMethod === 'upi' && !upiId) {
+    //         alert('Please enter your UPI ID');
+    //         return;
+    //     }
+    //     navigate('/user/my-order')
+    //     console.log('Payment Method:', selectedMethod);
+    //     console.log('UPI ID:', upiId);
+    //     // Proceed with payment logic
+    // };
+    useEffect(() => {
+        onPaymentMethod(selectedMethod)
+    }, [selectedMethod])
 
     return (
         <div className="max-w-md mx-auto mt-10 bg-white p-6 rounded-2xl shadow-md max-sm:mt-5">
             <h2 className="text-xl font-semibold text-gray-800 mb-6">Select Payment Method</h2>
 
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form className="space-y-4">
                 <div className="space-y-2">
                     {/* UPI Option */}
                     <label className="flex items-center p-3 border border-gray-300 rounded-lg cursor-pointer hover:border-amber-500 transition">
@@ -68,9 +69,9 @@ const PaymentMethod = () => {
                         <input
                             type="radio"
                             name="payment"
-                            value="cod"
-                            checked={selectedMethod === 'cod'}
-                            onChange={() => setSelectedMethod('cod')}
+                            value="cash"
+                            checked={selectedMethod === 'cash'}
+                            onChange={() => setSelectedMethod('cash')}
                             className="form-radio h-4 w-4 text-amber-600"
                         />
                         <span className="ml-3 text-gray-700">Cash on Delivery</span>
