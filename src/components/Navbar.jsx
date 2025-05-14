@@ -22,7 +22,8 @@ export const Navbar = () => {
 
     const [name, setName] = useState("");
     const [menu, setMenu] = useState(false);
-    const [showDropdown, setShowDropdown] = useState(false);
+    const [showDropdown, setShowDropdown] = useState(false)
+    const [query, setQuery] = useState("");
 
     const token = localStorage.getItem("token");
 
@@ -31,6 +32,7 @@ export const Navbar = () => {
     function changeHandler(category) {
         dispatch(categoryAction.getCategory(category))
         setMenu(!menu)
+        navigate('/')
         toggleDropdown()
     }
 
@@ -62,14 +64,21 @@ export const Navbar = () => {
         fetchName()
     }, [])
 
-    // search input
-    const [query, setQuery] = useState("");
+
 
     async function fetchSuggestions(e) {
         e.preventDefault()
-        const res = await API.get(`/product/suggest?search=${query}`);
-        dispatch(suggessionAction.searchProduct(res.data))
-        dispatch(suggessionAction.setQuery(query))
+        try {
+            const res = await API.get(`/product/suggest?search=${query}`);
+            if (res.status === 200) {
+                dispatch(suggessionAction.searchProduct(res.data))
+                dispatch(suggessionAction.setQuery(query))
+                navigate('/')
+            }
+        } catch (error) {
+            console.log(error)
+        }
+        setQuery("")
     }
 
 
@@ -142,6 +151,7 @@ export const Navbar = () => {
                                 className='bg-white border focus:outline-none focus:ring-1 focus:ring-amber-500 border-gray-300 p-2 w-sm rounded-l-md'
                                 placeholder='Search this blog'
                                 required
+                                value={query}
                                 onChange={(e) => setQuery(e.target.value)}
                             />
                             <button className='p-2 bg-orange-200 rounded-r-md cursor-pointer text-white border border-orange-200'>

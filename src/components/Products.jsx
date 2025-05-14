@@ -41,6 +41,8 @@ export const Products = () => {
   }
 
 
+
+
   useEffect(() => {
     if (scrollTarget === 'buy') {
       sectionRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -48,12 +50,16 @@ export const Products = () => {
     }
   }, [scrollTarget, dispatch])
 
+  useEffect(() => {
+    setProducts(suggessionProduct)
+  }, [querySlice])
+
+
 
   useEffect(() => {
     async function fetchByCategory() {
       setLoading(true)
       try {
-
         const response = await API.get(`/product/getProductByCategory/${selectedCategory}`)
         if (response.status === 200) {
           setProducts(response.data.product)
@@ -68,9 +74,7 @@ export const Products = () => {
     fetchByCategory()
   }, [selectedCategory]);
 
-  useEffect(() => {
-    setProducts(suggessionProduct)
-  }, [querySlice])
+
 
 
   function addToCartHAndler(product) {
