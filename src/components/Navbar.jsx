@@ -16,7 +16,6 @@ export const Navbar = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const cartSelector = useSelector(state => state.ui.cart)
-
     const cartItems = useSelector(state => state.cart.items)
     const totalAmount = useSelector(state => state.cart.totalAmount);
 

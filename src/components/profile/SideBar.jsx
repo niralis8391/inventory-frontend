@@ -26,7 +26,7 @@ export const SideBar = ({ onCloseDashBoardHandler, onshowDashBoard }) => {
                 <NavLink to="/user/change-password" className={({ isActive }) => `flex items-center gap-2 cursor-pointer ${isActive ? ' bg-gray-200' : ' '}  rounded-md hover:bg-gray-200 p-3 w-full`} onClick={onCloseDashBoardHandler}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M6 20V10h12v3.09c.33-.05.66-.09 1-.09s.67.04 1 .09V10a2 2 0 0 0-2-2h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.11 0-2 .89-2 2v10a2 2 0 0 0 2 2h7.81c-.35-.61-.59-1.28-.72-2zM9 6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9zm5 9c0 1.11-.89 2-2 2a2 2 0 0 1-2-2c0-1.11.89-2 2-2a2 2 0 0 1 2 2m9 3v2h-3v3h-2v-3h-3v-2h3v-3h2v3z" /></svg>
                     Change Password</NavLink>
-                <button className='flex items-center gap-2 cursor-pointer rounded-md  hover:bg-gray-200 p-3 w-full' onClick={() => { localStorage.removeItem("token"); navigate('/') }}>
+                <button className='flex items-center gap-2 cursor-pointer rounded-md  hover:bg-gray-200 p-3 w-full' onClick={() => { localStorage.removeItem("token"); localStorage.removeItem("userId"); navigate('/') }}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M5 21q-.825 0-1.412-.587T3 19V5q0-.825.588-1.412T5 3h6q.425 0 .713.288T12 4t-.288.713T11 5H5v14h6q.425 0 .713.288T12 20t-.288.713T11 21zm12.175-8H10q-.425 0-.712-.288T9 12t.288-.712T10 11h7.175L15.3 9.125q-.275-.275-.275-.675t.275-.7t.7-.313t.725.288L20.3 11.3q.3.3.3.7t-.3.7l-3.575 3.575q-.3.3-.712.288t-.713-.313q-.275-.3-.262-.712t.287-.688z" /></svg>
                     Logout
                 </button>

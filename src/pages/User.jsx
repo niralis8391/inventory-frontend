@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { SideBar } from '../components/profile/SideBar'
 import { Navigate, Outlet } from 'react-router-dom'
+import { uiSliceAction } from '../store/ui-slice'
+import { useDispatch } from 'react-redux'
 
 export const User = () => {
 
@@ -10,10 +12,13 @@ export const User = () => {
         return <Navigate to="/login" replace />
     }
 
+    const dispatch = useDispatch()
+
     const [showDashBoard, setShowDashBoard] = useState(false)
 
     function showDashBoardHandler() { setShowDashBoard(true) }
     function closeDashBoardHandler() { setShowDashBoard(false) }
+
 
     return (
         <div className='flex w-full h-fit border-t border-b border-gray-300 relative'>

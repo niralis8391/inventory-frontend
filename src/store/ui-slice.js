@@ -5,7 +5,8 @@ const uiSlice = createSlice({
     name: "ui-slice",
     initialState: {
         target: null,
-        cart: false
+        cart: false,
+        navbar: false
     },
     reducers: {
         handleBuyNowref(state, action) {
@@ -16,6 +17,9 @@ const uiSlice = createSlice({
         },
         showCart(state) {
             state.cart = !state.cart
+        },
+        navbarToggle(state) {
+            state.navbar = false
         }
     }
 });
