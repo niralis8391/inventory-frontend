@@ -113,12 +113,12 @@ export const Products = () => {
           products.map((product) => (
             <div className="relative bg-white w-[15rem] max-[450]:w-full max-[950px]:mt-10 h-xl flex flex-col justify-between  items-start  transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl rounded-lg" key={product._id}>
               <img
-                src={product.image}
+                src={product.image.url}
                 alt={product.productName}
                 className='w-full h-64 object-cover '
-                onClick={() => setBigImage(product.image)}
+                onClick={() => setBigImage(product.image.url)}
               />
-              <div className='absolute z-40 top-2 right-2 text-white cursor-pointer' onClick={() => setBigImage(product.image)}>
+              <div className='absolute z-40 top-2 right-2 text-white cursor-pointer' onClick={() => setBigImage(product.image.url)}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12 9a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5a5 5 0 0 1 5-5a5 5 0 0 1 5 5a5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5" /></svg>
               </div>
               <div className='flex flex-col justify-between items-start p-4'>

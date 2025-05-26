@@ -56,7 +56,7 @@ export const Cart = ({ onCloseCart }) => {
                     <div className=''>
                         {storedItems.map((items) => {
                             return <div className='flex gap-3 items-center p-2' key={items._id}>
-                                <img src={items.image} className='w-20 h-20' />
+                                <img src={items.image.url} className='w-20 h-20' />
                                 <div>
                                     <p className='font-semibold'>{items.productName}</p>
                                     <p className='text-gray-500'>Rs. {items.price}</p>
