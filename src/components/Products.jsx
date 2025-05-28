@@ -123,7 +123,7 @@ export const Products = () => {
               </div>
               <div className='flex flex-col justify-between items-start p-4'>
                 <h2 className="text-lg font-bold capitalize">{product.productName}</h2>
-                <h3 className="text-md text-gray-500 capitalize bg-red-100 h-12">{product.description}</h3>
+                <h3 className="text-md text-gray-500 capitalize h-12">{product.description}</h3>
                 <h3 className="text-md text-gray-500 capitalize"><span className='text-black'>Size:</span> {product.size}</h3>
                 <p className="text-amber-800 font-semibold">₹ {product.price}</p>
               </div>
