@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion'
 
@@ -19,6 +19,10 @@ export const Navbar = () => {
     const cartItems = useSelector(state => state.cart.items)
     const totalAmount = useSelector(state => state.cart.totalAmount);
 
+    const dragging = useRef(false);
+    const offset = useRef({ x: 0, y: 0 });
+
+    const [position, setPosition] = useState({ x: 0, y: 250 });
     const [name, setName] = useState("");
     const [menu, setMenu] = useState(false);
     const [showDropdown, setShowDropdown] = useState(false)
@@ -27,6 +31,37 @@ export const Navbar = () => {
     const token = localStorage.getItem("token");
 
     const toggleDropdown = () => setShowDropdown(!showDropdown);
+
+    useEffect(() => {
+        const divWidth = 120;
+        const divHeight = 150;
+
+        const x = window.innerWidth - divWidth - 0; // 20px padding from right
+        const y = window.innerHeight / 2 - divHeight / 2;
+
+        setPosition({ x, y });
+    }, []);
+
+    const handleMouseDown = (e) => {
+        dragging.current = true;
+        offset.current = {
+            x: e.clientX - position.x,
+            y: e.clientY - position.y,
+        };
+    };
+
+    const handleMouseMove = (e) => {
+        if (dragging.current) {
+            setPosition({
+                x: e.clientX - offset.current.x,
+                y: e.clientY - offset.current.y,
+            });
+        }
+    };
+
+    const handleMouseUp = () => {
+        dragging.current = false;
+    };
 
     function changeHandler(category) {
         dispatch(categoryAction.getCategory(category))
@@ -173,13 +208,23 @@ export const Navbar = () => {
 
                     {/* floating cart */}
                     <motion.div
-                        className="fixed w-24 h-30 right-4 top-1/3 z-40 bg-orange-200 rounded-md cursor-pointer"
+                        onMouseDown={handleMouseDown}
+                        onMouseMove={handleMouseMove}
+                        onMouseUp={handleMouseUp}
+                        onMouseLeave={handleMouseUp}
+                        className=" w-24 h-30 z-40 bg-orange-200 rounded-md cursor-pointer"
                         onClick={showCartHandler}
                         animate={{ y: [0, 5, 0] }}
                         transition={{
                             duration: 1.5,
                             repeat: Infinity,
                             ease: "linear",
+                        }}
+                        style={{
+                            position: 'absolute',
+                            left: position.x,
+                            top: position.y,
+                            cursor: 'pointor',
                         }}
                     >
                         <div className=" flex h-full flex-col justify-center items-center">
