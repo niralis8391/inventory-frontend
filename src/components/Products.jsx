@@ -111,22 +111,23 @@ export const Products = () => {
       <div className="flex flex-wrap max-md:justify-center items-center gap-5 w-full  h-full">
         {products.length > 0 ?
           products.map((product) => (
-            <div className="relative bg-white w-[15rem] max-[450]:w-full max-[950px]:mt-10 h-xl flex flex-col justify-between  items-start  transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl rounded-lg" key={product._id}>
+            <div className="relative shadow-sm bg-white w-[15rem] max-[450]:w-full max-[950px]:mt-10 h-fit flex flex-col justify-between  items-start  transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl hover:shadow-gray-500 rounded-lg" key={product._id}>
               <img
                 src={product.image.url}
                 alt={product.productName}
-                className='w-full h-64 object-cover '
+                className='w-full h-64 object-cover rounded-t-md'
                 onClick={() => setBigImage(product.image.url)}
               />
               <div className='absolute z-40 top-2 right-2 text-white cursor-pointer' onClick={() => setBigImage(product.image.url)}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M12 9a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3m0 8a5 5 0 0 1-5-5a5 5 0 0 1 5-5a5 5 0 0 1 5 5a5 5 0 0 1-5 5m0-12.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5" /></svg>
               </div>
               <div className='flex flex-col justify-between items-start p-4'>
-                <h2 className="text-lg font-bold capitalize mt-4">{product.productName}</h2>
-                <h3 className="text-md text-gray-500 capitalize py-2 h-20">{product.description}</h3>
+                <h2 className="text-lg font-bold capitalize">{product.productName}</h2>
+                <h3 className="text-md text-gray-500 capitalize h-12">{product.description}</h3>
+                <h3 className="text-md text-gray-500 capitalize"><span className='text-black'>Size:</span> {product.size}</h3>
                 <p className="text-amber-800 font-semibold">₹ {product.price}</p>
               </div>
-              <button className='w-full px-5 bg-black text-white  mt-5 py-3 hover:cursor-pointer uppercase' onClick={() => addToCartHAndler(product)}>Add to cart</button>
+              <button className='w-full px-5 bg-black text-white py-3 hover:cursor-pointer uppercase rounded-b-md' onClick={() => addToCartHAndler(product)}>Add to cart</button>
             </div>
           ))
           :
