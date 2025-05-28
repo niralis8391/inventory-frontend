@@ -86,7 +86,7 @@ export const Order = () => {
                         {moreDetails.items.map((items, index) => {
                             return <div className='flex flex-col gap-2' key={index + 1}>
                                 <p className='text-gray-500'>{index + 1}.</p>
-                                <img src={items.product.image} className='w-44 h-44' />
+                                <img src={items.product.image.url} className='w-44 h-44' />
                                 <div>
                                     <p className='text-xl text-gray-500 capitalize'>{items.product.productName}</p>
                                     <p className='font-semibold text-gray-500'>Qty: {items.quantity}</p>
