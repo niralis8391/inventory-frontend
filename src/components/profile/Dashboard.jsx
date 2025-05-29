@@ -1,6 +1,84 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import API from '../../API/API'
 
 export const Dashboard = () => {
+
+    const [pendingOrders, setPendingOrders] = useState(0)
+    const [totalOrders, setTotalOrders] = useState(0)
+    const [completedOrders, setCompletedOrders] = useState(0)
+    const [loading, setLoading] = useState(false)
+
+    const token = localStorage.getItem("token")
+
+    useEffect(() => {
+        async function getOrdersCount() {
+            setLoading(true)
+            try {
+                const response = await API.get(`/customer/getTotalOrdersCount`, {
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    }
+                })
+                if (response.status === 200) {
+                    setTotalOrders(response.data.data)
+                }
+            } catch (error) {
+                console.log(error)
+            } finally {
+                setLoading(false)
+            }
+        }
+        getOrdersCount()
+    }, [])
+
+    useEffect(() => {
+        async function getPendingOrders() {
+            setLoading(true)
+            try {
+                const response = await API.get(`/customer/getOrderByStatus?search=${"pending"}`, {
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    }
+                })
+                if (response.status === 200) {
+                    setPendingOrders(response.data.data)
+                }
+            } catch (error) {
+                console.log(error)
+            } finally {
+                setLoading(false)
+            }
+        }
+        getPendingOrders()
+    }, [])
+
+    useEffect(() => {
+        async function getCompletedOrders() {
+            setLoading(true)
+            try {
+                const response = await API.get(`/customer/getOrderByStatus?search=${"completed"}`, {
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json'
+                    }
+                })
+                if (response.status === 200) {
+                    setCompletedOrders(response.data.data)
+                }
+            } catch (error) {
+                console.log(error)
+            } finally {
+                setLoading(false)
+            }
+        }
+        getCompletedOrders()
+    }, [])
+
+
+
+
     return (
         <div>
             <h2 className='text-xl font-semibold'>Dashboard</h2>
@@ -11,7 +89,7 @@ export const Dashboard = () => {
                     </p>
                     <div>
                         <h3 className='text-gray-500'>Total Orders</h3>
-                        <p className='font-semibold'>0</p>
+                        <p className='font-semibold'>{totalOrders}</p>
                     </div>
                 </div>
                 <div className='flex items-center gap-3 p-5 border border-gray-300 rounded-md w-[15rem]'>
@@ -20,7 +98,7 @@ export const Dashboard = () => {
                     </p>
                     <div>
                         <h3 className='text-gray-500'>Pending Orders</h3>
-                        <p className='font-semibold'>0</p>
+                        <p className='font-semibold'>{pendingOrders}</p>
                     </div>
                 </div>
                 <div className='flex items-center gap-3 p-5 border border-gray-300 rounded-md w-[15rem]'>
@@ -29,7 +107,7 @@ export const Dashboard = () => {
                     </p>
                     <div>
                         <h3 className='text-gray-500'>Processing Order</h3>
-                        <p className='font-semibold'>0</p>
+                        <p className='font-semibold'>{pendingOrders}</p>
                     </div>
                 </div>
                 <div className='flex items-center gap-3 p-5 border border-gray-300 rounded-md w-[15rem]'>
@@ -38,7 +116,7 @@ export const Dashboard = () => {
                     </p>
                     <div>
                         <h3 className='text-gray-500'>Complete Orders</h3>
-                        <p className='font-semibold'>0</p>
+                        <p className='font-semibold'>{completedOrders}</p>
                     </div>
                 </div>
             </div>
