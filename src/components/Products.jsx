@@ -8,6 +8,7 @@ import { cartAction } from '../store/cart-slice'
 import { suggessionAction } from '../store/suggest-slice'
 import { categoryAction } from '../store/category-slice'
 import { motion } from 'framer-motion'
+import { Helmet } from 'react-helmet';
 
 export const Products = () => {
 
@@ -97,7 +98,8 @@ export const Products = () => {
   }
 
 
-  return (
+  return (<>
+
     <div className='p-5 md:p-16 h-2xl h-full bg-gray-100' ref={sectionRef}>
       <div className='min-[950px]:hidden flex items-center justify-center'>
         <div className="relative group transition-all duration-300 ease-in-out">
@@ -150,6 +152,12 @@ export const Products = () => {
         {products.length > 0 ?
           products.map((product) => (
             <div className="relative shadow-sm bg-white w-[15rem] max-[450]:w-full max-[950px]:mt-10 h-fit flex flex-col justify-between  items-start  transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-2xl hover:shadow-gray-500 rounded-lg" key={product._id}>
+              <Helmet>
+                <title>{product.name} | Purecots</title>
+                <meta name="description" content={product.description} />
+                <meta property="og:title" content={product.name} />
+                <meta property="og:image" content={product.image.url} />
+              </Helmet>
               <img
                 src={product.image.url}
                 alt={product.productName}
@@ -182,5 +190,6 @@ export const Products = () => {
       </div>
 
     </div>
+  </>
   )
 }
